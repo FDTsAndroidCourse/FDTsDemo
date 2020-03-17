@@ -5,7 +5,7 @@ import android.view.View;
 import java.util.logging.Logger;
 
 public class InputListener implements View.OnClickListener, View.OnLongClickListener, View.OnFocusChangeListener {
-    public static final Logger LOGGER = Logger.getLogger(InputListener.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(InputListener.class.getName());
 
     public InputListener(View view) {
         view.setOnClickListener(this);

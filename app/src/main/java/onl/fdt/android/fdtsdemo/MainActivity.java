@@ -34,7 +34,10 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import onl.fdt.android.fdtsdemo.InputListener.CheckBoxInputListener;
 import onl.fdt.android.fdtsdemo.InputListener.InputListener;
+import onl.fdt.android.fdtsdemo.InputListener.SeekBarInputListener;
+import onl.fdt.android.fdtsdemo.InputListener.SwitchInputListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.text);
 
         InputListener buttonInputListener = new InputListener(button);
-        InputListener checkBoxInputListener = new InputListener(checkBox);
-        InputListener switchInputListener = new InputListener(_switch);
-        InputListener seekBarInputListener = new InputListener(seekBar);
+        InputListener checkBoxInputListener = new CheckBoxInputListener(checkBox);
+        InputListener switchInputListener = new SwitchInputListener(_switch);
+        InputListener seekBarInputListener = new SeekBarInputListener(seekBar);
         InputListener radioButtonInputListener = new InputListener(radioButton);
 
         InputListener textViewInputListener = new InputListener(textView);
