@@ -30,7 +30,7 @@ import android.widget.SeekBar;
 import java.util.logging.Logger;
 
 public class SeekBarInputListener extends InputListener implements SeekBar.OnSeekBarChangeListener {
-    private static final Logger LOGGER = Logger.getLogger(SeekBarInputListener.class.getName());
+    public static final Logger LOGGER = Logger.getLogger(SeekBarInputListener.class.getName());
 
     public SeekBarInputListener(SeekBar view) {
         super(view);

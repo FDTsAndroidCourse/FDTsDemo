@@ -22,27 +22,54 @@
  *
  */
 
-package onl.fdt.android.fdtsdemo.InputListener;
+package onl.fdt.android.fdtsdemo.log.handler;
 
-import android.view.View;
-import android.widget.Switch;
+import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.logging.Formatter;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
-public class SwitchInputListener extends InputListener {
-    public static final Logger LOGGER = Logger.getLogger(SwitchInputListener.class.getName());
+public class TextViewLogHandler extends Handler {
 
-    public SwitchInputListener(Switch view) {
-        super(view);
+    private static final Logger LOGGER = Logger.getLogger(TextViewLogHandler.class.getName());
+
+    private final TextView v;
+    private String text = "";
+    private final static Formatter formatter = new SimpleFormatter();
+    private LinkedList<LogRecord> logRecords = new LinkedList<LogRecord>();
+
+    public TextViewLogHandler(TextView v) {
+        this.v = v;
     }
 
     @Override
-    public void onClick(View v) {
-        super.onClick(v);
+    public void publish(LogRecord record) {
+        logRecords.add(record);
+        syncText();
+    }
 
-        if (v instanceof Switch) {
-            Switch _switch = ((Switch) v);
-            LOGGER.info(v.getId() + " isChecked(): " + _switch.isChecked());
+    public void syncText() {
+        final StringBuilder text = new StringBuilder();
+        for (LogRecord i : logRecords) {
+            text.append(formatter.format(i));
         }
+        this.text = text.toString();
+        v.setText(text);
+    }
+
+    @Override
+    public void flush() {
+        logRecords.clear();
+        syncText();
+    }
+
+    @Override
+    public void close() throws SecurityException {
+
     }
 }

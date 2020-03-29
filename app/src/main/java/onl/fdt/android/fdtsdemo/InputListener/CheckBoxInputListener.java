@@ -30,7 +30,7 @@ import android.widget.CheckBox;
 import java.util.logging.Logger;
 
 public class CheckBoxInputListener extends InputListener {
-    private static final Logger LOGGER = Logger.getLogger(CheckBoxInputListener.class.getName());
+    public static final Logger LOGGER = Logger.getLogger(CheckBoxInputListener.class.getName());
 
     public CheckBoxInputListener(CheckBox view) {
         super(view);
@@ -45,4 +45,5 @@ public class CheckBoxInputListener extends InputListener {
             LOGGER.info(v.getId() + " isChecked(): " + checkBox.isChecked());
         }
     }
+
 }

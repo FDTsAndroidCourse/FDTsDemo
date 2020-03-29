@@ -7,9 +7,9 @@
 2. Load this project into your [AndroidStudio](https://developer.android.com/studio)
 
 ## Build debug APK
-    `$ ./gradlew assembleDebug`
+    `$ ./gradlew assembleDebug`  
     Then you shall check `app/build/outputs/apk/debug/app-debug.apk`
 
 ## Reading Logs
-    `$ adb logcat`
+    `$ adb logcat`  
     For further issues, please refer to [https://developer.android.com/studio/command-line/logcat](https://developer.android.com/studio/command-line/logcat).

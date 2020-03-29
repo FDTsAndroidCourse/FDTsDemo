@@ -27,6 +27,7 @@ package onl.fdt.android.fdtsdemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
@@ -34,12 +35,17 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.logging.Logger;
+
 import onl.fdt.android.fdtsdemo.InputListener.CheckBoxInputListener;
 import onl.fdt.android.fdtsdemo.InputListener.InputListener;
 import onl.fdt.android.fdtsdemo.InputListener.SeekBarInputListener;
 import onl.fdt.android.fdtsdemo.InputListener.SwitchInputListener;
+import onl.fdt.android.fdtsdemo.log.handler.TextViewLogHandler;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final Logger LOGGER = Logger.getLogger(MainActivity.class.getName());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,5 +67,19 @@ public class MainActivity extends AppCompatActivity {
         InputListener radioButtonInputListener = new InputListener(radioButton);
 
         InputListener textViewInputListener = new InputListener(textView);
+        textView.setMovementMethod(new ScrollingMovementMethod());
+
+        // LOGGER append log info to textView
+        TextViewLogHandler textViewLogHandler = new TextViewLogHandler(textView);
+        LOGGER.addHandler(textViewLogHandler);
+//        CheckBoxInputListener.LOGGER.addHandler(textViewLogHandler);
+        LOGGER.info("onCreate()");
+        textViewLogHandler.syncText();
+    }
+
+    @Override
+    protected void onDestroy() {
+        LOGGER.info("onDestroy()");
+        super.onDestroy();
     }
 }
