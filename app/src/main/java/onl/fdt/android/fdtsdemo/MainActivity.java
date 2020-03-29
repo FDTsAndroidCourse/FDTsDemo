@@ -35,11 +35,14 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import onl.fdt.android.fdtsdemo.InputListener.CheckBoxInputListener;
+import onl.fdt.android.fdtsdemo.InputListener.CountViewsButtonInputListener;
 import onl.fdt.android.fdtsdemo.InputListener.InputListener;
 import onl.fdt.android.fdtsdemo.InputListener.SeekBarInputListener;
+import onl.fdt.android.fdtsdemo.InputListener.StartCyclerViewInputListener;
 import onl.fdt.android.fdtsdemo.InputListener.SwitchInputListener;
 import onl.fdt.android.fdtsdemo.log.handler.TextViewLogHandler;
 
@@ -58,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
         RadioButton radioButton = (RadioButton) findViewById(R.id.radioButton);
 
+        TextView countViewsTextView = (TextView) this.findViewById(R.id.countViewsTextView);
+        Button countViewsButton = (Button) this.findViewById(R.id.countViewsButton);
+        Button startCyclerViewButton = (Button) this.findViewById(R.id.recycler_view);
+
         TextView textView = (TextView) findViewById(R.id.text);
 
         InputListener buttonInputListener = new InputListener(button);
@@ -69,12 +76,18 @@ public class MainActivity extends AppCompatActivity {
         InputListener textViewInputListener = new InputListener(textView);
         textView.setMovementMethod(new ScrollingMovementMethod());
 
+        CountViewsButtonInputListener countViewsButtonInputListener = new CountViewsButtonInputListener(countViewsButton, countViewsTextView, this);
+
         // LOGGER append log info to textView
         TextViewLogHandler textViewLogHandler = new TextViewLogHandler(textView);
         LOGGER.addHandler(textViewLogHandler);
 //        CheckBoxInputListener.LOGGER.addHandler(textViewLogHandler);
         LOGGER.info("onCreate()");
         textViewLogHandler.syncText();
+
+        // Listener to start ListActivity
+//        LOGGER.info("startCyclerViewButton" + String.valueOf(startCyclerViewButton.getId()));
+//        StartCyclerViewInputListener startCyclerViewInputListener = new StartCyclerViewInputListener(startCyclerViewButton, this);
     }
 
     @Override
