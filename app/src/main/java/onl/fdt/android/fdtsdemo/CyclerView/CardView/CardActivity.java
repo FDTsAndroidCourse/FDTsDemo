@@ -22,54 +22,30 @@
  *
  */
 
-package onl.fdt.android.fdtsdemo.CyclerView;
+package onl.fdt.android.fdtsdemo.CyclerView.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.logging.Logger;
-
-import onl.fdt.android.fdtsdemo.CyclerView.model.Message;
-import onl.fdt.android.fdtsdemo.CyclerView.model.PullParser;
 import onl.fdt.android.fdtsdemo.R;
 
-public class ListActivity extends AppCompatActivity {
+public class CardActivity extends AppCompatActivity {
 
-    public static final String DATA_XML = "data.xml";
-    private static final Logger LOGGER = Logger.getLogger(ListActivity.class.getName());
-
-    private Toast mToast;
+    public static final String SHOW_MESSAGE_STRING_EXTRA_NAME = "9653f9ec-e999-41ea-9492-9a084ce763bd";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_list);
+        this.setContentView(R.layout.activity_show_position);
 
-        RecyclerView view = (RecyclerView) this.findViewById(R.id.recycler_view);
-        view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        Intent intent = this.getIntent();
 
-        try {
-            InputStream dataInputStream = this.getAssets().open(DATA_XML);
-            List<Message> messages = PullParser.pull2xml(dataInputStream);
+        TextView textView = (TextView) this.findViewById(R.id.card_position_text_view);
 
-            DataAdapter dataAdapter = new DataAdapter(messages, this);
-            view.setAdapter(dataAdapter);
-
-        } catch (IOException e) {
-            LOGGER.warning(String.format("onCreate() IOException when reading %s", DATA_XML));
-        }
+        textView.setText(intent.getStringExtra(SHOW_MESSAGE_STRING_EXTRA_NAME));
     }
-
-
 }

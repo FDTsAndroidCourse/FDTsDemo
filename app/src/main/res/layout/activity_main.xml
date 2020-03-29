@@ -25,13 +25,13 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/cycler_view"
+                        android:id="@+id/cycler_view_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="44dp"
                         android:layout_marginLeft="44dp"
                         android:layout_marginTop="36dp"
-                        android:text="CyclerView" />
+                        android:text="Cycler_View" />
                 </TableRow>
 
                 <TableRow

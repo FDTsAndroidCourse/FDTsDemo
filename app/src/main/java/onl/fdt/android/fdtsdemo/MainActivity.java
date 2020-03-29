@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView countViewsTextView = (TextView) this.findViewById(R.id.countViewsTextView);
         Button countViewsButton = (Button) this.findViewById(R.id.countViewsButton);
-        Button startCyclerViewButton = (Button) this.findViewById(R.id.recycler_view);
+        Button startCyclerViewButton = (Button) this.findViewById(R.id.cycler_view_button);
 
         TextView textView = (TextView) findViewById(R.id.text);
 
@@ -86,8 +86,7 @@ public class MainActivity extends AppCompatActivity {
         textViewLogHandler.syncText();
 
         // Listener to start ListActivity
-//        LOGGER.info("startCyclerViewButton" + String.valueOf(startCyclerViewButton.getId()));
-//        StartCyclerViewInputListener startCyclerViewInputListener = new StartCyclerViewInputListener(startCyclerViewButton, this);
+        StartCyclerViewInputListener startCyclerViewInputListener = new StartCyclerViewInputListener(startCyclerViewButton, this);
     }
 
     @Override
