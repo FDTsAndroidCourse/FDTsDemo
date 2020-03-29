@@ -25,6 +25,7 @@
 package onl.fdt.android.fdtsdemo.CyclerView;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,14 +58,14 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         private final TextView timeTextView;
 
         private int position = 0;
-//        private final CircleImageView circleImageView;
+        private final CircleImageView circleImageView;
         public ViewHolder(View v) {
             super(v);
             this.view = v;
             this.titleTextView = v.findViewById(R.id.tv_title);
             this.descriptionTextView = v.findViewById(R.id.tv_description);
             this.timeTextView = v.findViewById(R.id.tv_time);
-//            this.circleImageView = v.findViewById(R.id.iv_avatar);
+            this.circleImageView = v.findViewById(R.id.iv_avatar);
         }
 
         public void loadData(final Message m, int position) {
@@ -89,7 +90,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                     DataAdapter.this.context.startActivity(intent);
                 }
             });
-//            this.circleImageView.setImageURI();
+            this.circleImageView.setImageDrawable(DataAdapter.this.context.getResources().getDrawable(m.iconDrawable()));
         }
     }
 

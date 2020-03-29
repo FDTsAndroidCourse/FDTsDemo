@@ -40,13 +40,13 @@
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp">
 
-<!--        <chapter.android.aweme.ss.com.homework.widget.CircleImageView-->
-<!--            android:id="@+id/iv_avatar"-->
-<!--            android:layout_width="48dp"-->
-<!--            android:layout_height="48dp"-->
+        <onl.fdt.android.fdtsdemo.CyclerView.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
 
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/icon_girl" />-->
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_girl" />
 
 <!--        <ImageView-->
 <!--            android:id="@+id/robot_notice"-->

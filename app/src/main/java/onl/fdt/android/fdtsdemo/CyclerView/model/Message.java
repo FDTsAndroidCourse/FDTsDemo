@@ -24,6 +24,8 @@
 
 package onl.fdt.android.fdtsdemo.CyclerView.model;
 
+import onl.fdt.android.fdtsdemo.R;
+
 public class Message {
 
     private boolean isOfficial;//是否官方
@@ -70,6 +72,30 @@ public class Message {
 
     public void setOfficial(boolean official) {
         isOfficial = official;
+    }
+
+    public int iconDrawable() {
+        if ("TYPE_ROBOT".equals(this.icon)) {
+            return R.drawable.session_robot;
+        }
+
+        if ("TYPE_GAME".equals(this.icon)) {
+            return R.drawable.icon_micro_game_comment;
+        }
+
+        if ("TYPE_SYSTEM".equals(this.icon)) {
+            return R.drawable.session_system_notice;
+        }
+
+        if ("TYPE_STRANGER".equals(this.icon)) {
+            return R.drawable.session_stranger;
+        }
+
+        if ("TYPE_USER".equals(this.icon)) {
+            return R.drawable.icon_girl;
+        }
+
+        return -1;
     }
 
     @Override
