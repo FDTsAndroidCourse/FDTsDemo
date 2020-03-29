@@ -39,9 +39,9 @@ public class ViewsCounter {
             for (int j = 0; j < i; ++j) {
                 View vi = v.getChildAt(j);
                 if (vi instanceof ViewGroup) {
-                    LOGGER.info(String.format("index %d", j));
+                    LOGGER.finest(String.format("index %d", j));
                     int k = getRecursiveChildCount((ViewGroup) v.getChildAt(j));
-                    LOGGER.info(String.format("sub %d", k));
+                    LOGGER.finest(String.format("sub %d", k));
                     c += k;
                 }
             }
