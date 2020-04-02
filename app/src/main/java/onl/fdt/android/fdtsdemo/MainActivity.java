@@ -26,67 +26,37 @@ package onl.fdt.android.fdtsdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.SeekBar;
-import android.widget.Switch;
-import android.widget.TextView;
 
-import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
-import onl.fdt.android.fdtsdemo.InputListener.CheckBoxInputListener;
-import onl.fdt.android.fdtsdemo.InputListener.CountViewsButtonInputListener;
-import onl.fdt.android.fdtsdemo.InputListener.InputListener;
-import onl.fdt.android.fdtsdemo.InputListener.SeekBarInputListener;
+import onl.fdt.android.fdtsdemo.InputListener.ClickStartNewIntentActivityInputListener;
 import onl.fdt.android.fdtsdemo.InputListener.StartCyclerViewInputListener;
-import onl.fdt.android.fdtsdemo.InputListener.SwitchInputListener;
-import onl.fdt.android.fdtsdemo.log.handler.TextViewLogHandler;
+import onl.fdt.android.fdtsdemo.ch3.Activity.Work1Activity;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final Logger LOGGER = Logger.getLogger(MainActivity.class.getName());
+    private Intent chapter3work1Intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = (Button) findViewById(R.id.button);
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
-        Switch _switch = (Switch) findViewById(R.id.switch1);
-        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
-        RadioButton radioButton = (RadioButton) findViewById(R.id.radioButton);
+        this.chapter3work1Intent = new Intent(this, Work1Activity.class);
 
-        TextView countViewsTextView = (TextView) this.findViewById(R.id.countViewsTextView);
-        Button countViewsButton = (Button) this.findViewById(R.id.countViewsButton);
         Button startCyclerViewButton = (Button) this.findViewById(R.id.cycler_view_button);
-
-        TextView textView = (TextView) findViewById(R.id.text);
-
-        InputListener buttonInputListener = new InputListener(button);
-        InputListener checkBoxInputListener = new CheckBoxInputListener(checkBox);
-        InputListener switchInputListener = new SwitchInputListener(_switch);
-        InputListener seekBarInputListener = new SeekBarInputListener(seekBar);
-        InputListener radioButtonInputListener = new InputListener(radioButton);
-
-        InputListener textViewInputListener = new InputListener(textView);
-        textView.setMovementMethod(new ScrollingMovementMethod());
-
-        CountViewsButtonInputListener countViewsButtonInputListener = new CountViewsButtonInputListener(countViewsButton, countViewsTextView, this);
-
-        // LOGGER append log info to textView
-        TextViewLogHandler textViewLogHandler = new TextViewLogHandler(textView);
-        LOGGER.addHandler(textViewLogHandler);
-//        CheckBoxInputListener.LOGGER.addHandler(textViewLogHandler);
-        LOGGER.info("onCreate()");
-        textViewLogHandler.syncText();
-
         // Listener to start ListActivity
         StartCyclerViewInputListener startCyclerViewInputListener = new StartCyclerViewInputListener(startCyclerViewButton, this);
+
+        // ch3 work1 button onclick
+        Button chapter3Work1Button = (Button) this.findViewById(R.id.ch3_work1);
+        ClickStartNewIntentActivityInputListener chapter3Work1ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work1Button, this, this.chapter3work1Intent);
+
+
     }
 
     @Override

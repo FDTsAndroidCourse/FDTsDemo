@@ -20,6 +20,8 @@
         <activity android:name=".CyclerView.ListActivity"></activity>
 
         <activity android:name=".CyclerView.CardView.CardActivity"></activity>
+
+        <activity android:name=".ch3.Activity.Work1Activity"></activity>
     </application>
 
 </manifest>
