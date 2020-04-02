@@ -24,6 +24,8 @@
         <activity android:name=".ch3.Activity.Work1Activity"></activity>
 
         <activity android:name=".ch3.Activity.Work2Activity"></activity>
+
+        <activity android:name=".ch3.Activity.Work3Activity"></activity>
     </application>
 
 </manifest>

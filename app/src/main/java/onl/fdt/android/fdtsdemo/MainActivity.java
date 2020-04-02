@@ -36,12 +36,14 @@ import onl.fdt.android.fdtsdemo.InputListener.ClickStartNewIntentActivityInputLi
 import onl.fdt.android.fdtsdemo.InputListener.StartCyclerViewInputListener;
 import onl.fdt.android.fdtsdemo.ch3.Activity.Work1Activity;
 import onl.fdt.android.fdtsdemo.ch3.Activity.Work2Activity;
+import onl.fdt.android.fdtsdemo.ch3.Activity.Work3Activity;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final Logger LOGGER = Logger.getLogger(MainActivity.class.getName());
     private Intent chapter3work1Intent;
     private Intent chapter3work2Intent;
+    private Intent chapter3work3Intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.chapter3work1Intent = new Intent(this, Work1Activity.class);
         this.chapter3work2Intent = new Intent(this, Work2Activity.class);
+        this.chapter3work3Intent = new Intent(this, Work3Activity.class);
 
         Button startCyclerViewButton = (Button) this.findViewById(R.id.cycler_view_button);
         // Listener to start ListActivity
@@ -59,9 +62,13 @@ public class MainActivity extends AppCompatActivity {
         Button chapter3Work1Button = (Button) this.findViewById(R.id.ch3_work1);
         ClickStartNewIntentActivityInputListener chapter3Work1ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work1Button, this, this.chapter3work1Intent);
 
-        // ch3 work1 button onclick
+        // ch3 work2 button onclick
         Button chapter3Work2Button = (Button) this.findViewById(R.id.ch3_work2_button);
         ClickStartNewIntentActivityInputListener chapter3Work2ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work2Button, this, this.chapter3work2Intent);
+
+        // ch3 work3 button onclick
+        Button chapter3Work3Button = (Button) this.findViewById(R.id.ch3_work3_button);
+        ClickStartNewIntentActivityInputListener chapter3Work3ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work3Button, this, this.chapter3work3Intent);
 
     }
 
