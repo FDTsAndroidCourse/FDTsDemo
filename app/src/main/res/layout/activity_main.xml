@@ -21,7 +21,7 @@
                 android:layout_height="match_parent">
 
                 <TableRow
-                    android:layout_width="411dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <Button
@@ -44,6 +44,18 @@
                         android:layout_height="wrap_content"
                         android:text="ch3_work1" />
                 </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/ch3_work2_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ch3_work2" />
+                </TableRow>
+
             </TableLayout>
         </TableRow>
 

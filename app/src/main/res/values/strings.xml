@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FDTsDemo</string>
+    <string name="invalid_duration">INVALID_DURATION</string>
+    <string name="duration_hint">in ms, between 100 and 10000</string>
 </resources>

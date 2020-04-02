@@ -35,11 +35,13 @@ import java.util.logging.Logger;
 import onl.fdt.android.fdtsdemo.InputListener.ClickStartNewIntentActivityInputListener;
 import onl.fdt.android.fdtsdemo.InputListener.StartCyclerViewInputListener;
 import onl.fdt.android.fdtsdemo.ch3.Activity.Work1Activity;
+import onl.fdt.android.fdtsdemo.ch3.Activity.Work2Activity;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final Logger LOGGER = Logger.getLogger(MainActivity.class.getName());
     private Intent chapter3work1Intent;
+    private Intent chapter3work2Intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.chapter3work1Intent = new Intent(this, Work1Activity.class);
+        this.chapter3work2Intent = new Intent(this, Work2Activity.class);
 
         Button startCyclerViewButton = (Button) this.findViewById(R.id.cycler_view_button);
         // Listener to start ListActivity
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         Button chapter3Work1Button = (Button) this.findViewById(R.id.ch3_work1);
         ClickStartNewIntentActivityInputListener chapter3Work1ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work1Button, this, this.chapter3work1Intent);
 
+        // ch3 work1 button onclick
+        Button chapter3Work2Button = (Button) this.findViewById(R.id.ch3_work2_button);
+        ClickStartNewIntentActivityInputListener chapter3Work2ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work2Button, this, this.chapter3work2Intent);
 
     }
 

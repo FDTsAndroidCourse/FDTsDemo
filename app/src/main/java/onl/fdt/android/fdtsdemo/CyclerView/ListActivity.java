@@ -69,6 +69,7 @@ public class ListActivity extends AppCompatActivity {
         } catch (IOException e) {
             LOGGER.warning(String.format("onCreate() IOException when reading %s", DATA_XML));
         }
+
     }
 
 
