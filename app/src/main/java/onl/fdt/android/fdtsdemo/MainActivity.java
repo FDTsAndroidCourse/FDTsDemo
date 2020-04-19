@@ -37,6 +37,7 @@ import onl.fdt.android.fdtsdemo.InputListener.StartCyclerViewInputListener;
 import onl.fdt.android.fdtsdemo.ch3.Activity.Work1Activity;
 import onl.fdt.android.fdtsdemo.ch3.Activity.Work2Activity;
 import onl.fdt.android.fdtsdemo.ch3.Activity.Work3Activity;
+import onl.fdt.android.fdtsdemo.ch4.ClockApplication;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         this.chapter3work2Intent = new Intent(this, Work2Activity.class);
         this.chapter3work3Intent = new Intent(this, Work3Activity.class);
 
+        final Intent chapter4ClockIntent = new Intent(this, ClockApplication.class);
+
         Button startCyclerViewButton = (Button) this.findViewById(R.id.cycler_view_button);
         // Listener to start ListActivity
         StartCyclerViewInputListener startCyclerViewInputListener = new StartCyclerViewInputListener(startCyclerViewButton, this);
@@ -69,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         // ch3 work3 button onclick
         Button chapter3Work3Button = (Button) this.findViewById(R.id.ch3_work3_button);
         ClickStartNewIntentActivityInputListener chapter3Work3ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work3Button, this, this.chapter3work3Intent);
+
+        // ch4 clock button onclick
+        Button chapter4ClockButton = (Button) this.findViewById(R.id.ch4_button);
+        ClickStartNewIntentActivityInputListener chapter4ClockClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter4ClockButton, this, chapter4ClockIntent);
 
     }
 
