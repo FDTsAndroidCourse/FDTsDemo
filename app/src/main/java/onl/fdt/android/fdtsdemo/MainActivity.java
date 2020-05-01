@@ -39,25 +39,23 @@ import onl.fdt.android.fdtsdemo.ch3.Activity.Work2Activity;
 import onl.fdt.android.fdtsdemo.ch3.Activity.Work3Activity;
 import onl.fdt.android.fdtsdemo.ch4.ClockApplication;
 import onl.fdt.android.fdtsdemo.ch5.Ch5Activity;
+import onl.fdt.android.fdtsdemo.ch6.activity.TodoListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final Logger LOGGER = Logger.getLogger(MainActivity.class.getName());
-    private Intent chapter3work1Intent;
-    private Intent chapter3work2Intent;
-    private Intent chapter3work3Intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.chapter3work1Intent = new Intent(this, Work1Activity.class);
-        this.chapter3work2Intent = new Intent(this, Work2Activity.class);
-        this.chapter3work3Intent = new Intent(this, Work3Activity.class);
-
+        final Intent chapter3work1Intent = new Intent(this, Work1Activity.class);
+        final Intent chapter3work2Intent = new Intent(this, Work2Activity.class);
+        final Intent chapter3work3Intent = new Intent(this, Work3Activity.class);
         final Intent chapter4ClockIntent = new Intent(this, ClockApplication.class);
         final Intent chapter5HTTPIntent = new Intent(this, Ch5Activity.class);
+        final Intent chapter6DBIntent = new Intent(this, TodoListActivity.class);
 
         Button startCyclerViewButton = (Button) this.findViewById(R.id.cycler_view_button);
         // Listener to start ListActivity
@@ -65,15 +63,15 @@ public class MainActivity extends AppCompatActivity {
 
         // ch3 work1 button onclick
         Button chapter3Work1Button = (Button) this.findViewById(R.id.ch3_work1);
-        ClickStartNewIntentActivityInputListener chapter3Work1ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work1Button, this, this.chapter3work1Intent);
+        ClickStartNewIntentActivityInputListener chapter3Work1ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work1Button, this, chapter3work1Intent);
 
         // ch3 work2 button onclick
         Button chapter3Work2Button = (Button) this.findViewById(R.id.ch3_work2_button);
-        ClickStartNewIntentActivityInputListener chapter3Work2ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work2Button, this, this.chapter3work2Intent);
+        ClickStartNewIntentActivityInputListener chapter3Work2ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work2Button, this, chapter3work2Intent);
 
         // ch3 work3 button onclick
         Button chapter3Work3Button = (Button) this.findViewById(R.id.ch3_work3_button);
-        ClickStartNewIntentActivityInputListener chapter3Work3ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work3Button, this, this.chapter3work3Intent);
+        ClickStartNewIntentActivityInputListener chapter3Work3ClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter3Work3Button, this, chapter3work3Intent);
 
         // ch4 clock button onclick
         Button chapter4ClockButton = (Button) this.findViewById(R.id.ch4_button);
@@ -83,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
         Button chapter5ClockButton = (Button) this.findViewById(R.id.ch5_enter_button);
         ClickStartNewIntentActivityInputListener chapter5HTTPClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter5ClockButton, this, chapter5HTTPIntent);
 
+        // ch6 DB button onclick
+        Button chapter6DBButton = (Button) this.findViewById(R.id.ch6_enter_button);
+        ClickStartNewIntentActivityInputListener chapter6DBClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter6DBButton, this, chapter6DBIntent);
     }
 
     @Override

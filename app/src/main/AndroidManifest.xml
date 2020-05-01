@@ -34,6 +34,10 @@
         <activity android:name=".ch4.ClockApplication"></activity>
 
         <activity android:name=".ch5.Ch5Activity"></activity>
+
+        <activity android:name=".ch6.activity.TodoListActivity"></activity>
+
+        <activity android:name=".ch6.activity.AddNoteActivity"></activity>
     </application>
 
 </manifest>
