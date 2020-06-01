@@ -40,6 +40,7 @@ import onl.fdt.android.fdtsdemo.ch3.Activity.Work3Activity;
 import onl.fdt.android.fdtsdemo.ch4.ClockApplication;
 import onl.fdt.android.fdtsdemo.ch5.Ch5Activity;
 import onl.fdt.android.fdtsdemo.ch6.activity.TodoListActivity;
+import onl.fdt.android.fdtsdemo.ch7.PlayerActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         final Intent chapter4ClockIntent = new Intent(this, ClockApplication.class);
         final Intent chapter5HTTPIntent = new Intent(this, Ch5Activity.class);
         final Intent chapter6DBIntent = new Intent(this, TodoListActivity.class);
+        final Intent chapter7Intent = new Intent(this, PlayerActivity.class);
 
         Button startCyclerViewButton = (Button) this.findViewById(R.id.cycler_view_button);
         // Listener to start ListActivity
@@ -84,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         // ch6 DB button onclick
         Button chapter6DBButton = (Button) this.findViewById(R.id.ch6_enter_button);
         ClickStartNewIntentActivityInputListener chapter6DBClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter6DBButton, this, chapter6DBIntent);
+
+        // ch7 button onclick
+        Button chapter7PlayerButton = (Button) this.findViewById(R.id.ch7_enter_button);
+        ClickStartNewIntentActivityInputListener chapter7PlayerClickStartNewIntentActivityInputListener = new ClickStartNewIntentActivityInputListener(chapter7PlayerButton, this, chapter7Intent);
     }
 
     @Override
